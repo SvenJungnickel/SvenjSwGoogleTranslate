@@ -24,8 +24,11 @@ class SvenjSwGoogleTranslate extends Plugin
      */
     public function onPostDispatch(\Enlight_Event_EventArgs $args)
     {
-        $this->container->get('Template')->addTemplateDir(
-            $this->getPath() . '/Resources/views/'
-        );
+        $config = $this->container->get('shopware.plugin.config_reader')->getByPluginName($this->getName());
+
+        $view = $args->getSubject()->View();
+
+        $view->assign('sAnalyticsWebPropertyID', $config['AnalyticsWebPropertyID']);
+        $view->addTemplateDir($this->getPath() . '/Resources/views/');
     }
 }

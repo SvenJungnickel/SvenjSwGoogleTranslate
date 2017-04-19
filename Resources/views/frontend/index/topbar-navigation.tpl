@@ -8,7 +8,12 @@
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement('svenj-sw-google-translate-container');
+            new google.translate.TranslateElement({
+            {if isset($sAnalyticsWebPropertyID) && $sAnalyticsWebPropertyID != ""}
+                gaTrack: true,
+                gaId: '{$sAnalyticsWebPropertyID}'
+            {/if}
+            }, 'svenj-sw-google-translate-container');
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
