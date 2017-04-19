@@ -3,8 +3,8 @@
     <elements>
         <element required="false" type="text">
             <name>AnalyticsWebPropertyID</name>
-            <label lang="de">Die Verwendung der Übersetzungsfunktion soll in Google Analytics verfolgt werden? Dann füge bitte deine Analytics-Web-Property-ID hier ein</label>
-            <label lang="en">You want to track the using of the translate function in Google Analytics? Then insert here your Analytics-Web-Property-ID please</label>
+            <label lang="de">Die Verwendung der Übersetzungsfunktion soll in Google Analytics verfolgt werden? Dann füge deine Analytics-Web-Property-ID hier ein</label>
+            <label lang="en">You want to track the translation traffic using Google Analytics? Then paste your Analytics-Web-Property-ID here</label>
             <value></value>
             <description lang="de">Deine Analytics-Web-Property-ID findest du in deinem Google Analytics Konto unter "Verwaltung->Property-Einstellungen->Grundeinstellungen->Tracking-ID" (z.B. UA-01234567-1)</description>
             <description lang="en">You can find your Analytics-Web-Property-ID in your Google Analytics account under "Admin->Property Settings->Basic Settings->Tracking Id" (eg. UA-01234567-1)</description>
