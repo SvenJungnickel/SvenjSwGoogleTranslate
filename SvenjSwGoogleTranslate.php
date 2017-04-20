@@ -15,7 +15,7 @@ class SvenjSwGoogleTranslate extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatchSecure_Frontend_Index' => 'onPostDispatch',
+            'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onPostDispatch',
         ];
     }
 
