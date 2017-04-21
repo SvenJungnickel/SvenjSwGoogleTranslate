@@ -1,20 +1,8 @@
 {extends file='parent:frontend/index/topbar-navigation.tpl'}
 
 {block name="frontend_index_navigation_inline" prepend}
-    <div class="navigation--entry entry--translate has--drop-down">
-        <img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0; float: left; margin-top: 5px;">
-        <div id="svenj-sw-google-translate-container" style="float: left;"></div>
+    <div class="navigation--entry has--drop-down svenj-sw-google-translate--container">
+        <img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon svenj-sw-google-translate--icon" alt="" />
+        <div id="svenj-sw-google-translate-element" class="svenj-sw-google-translate--element"></div>
     </div>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-            {if isset($sAnalyticsWebPropertyID) && $sAnalyticsWebPropertyID != ""}
-                gaTrack: true,
-                gaId: '{$sAnalyticsWebPropertyID}'
-            {/if}
-            }, 'svenj-sw-google-translate-container');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 {/block}

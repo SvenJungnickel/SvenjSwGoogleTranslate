@@ -10,25 +10,28 @@ use Shopware\Components\Plugin;
 class SvenjSwGoogleTranslate extends Plugin
 {
     /**
-     * @inheritdoc
+     * Required for adding the register subscriber event before dispatching
+     *
+     * @return array
      */
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onPostDispatch',
+            'Enlight_Controller_Front_StartDispatch' => 'onRegisterSubscriber'
         ];
     }
 
     /**
-     * @param \Enlight_Event_EventArgs $args
+     * Add all subscriber classes for events here
+     *
+     * @param \Enlight_Controller_EventArgs $args
      */
-    public function onPostDispatch(\Enlight_Event_EventArgs $args)
+    public function onRegisterSubscriber(\Enlight_Controller_EventArgs $args)
     {
         $config = $this->container->get('shopware.plugin.config_reader')->getByPluginName($this->getName());
+        $viewDir = $this->getPath() . '/Resources/views/';
 
-        $view = $args->getSubject()->View();
-
-        $view->assign('sAnalyticsWebPropertyID', $config['AnalyticsWebPropertyID']);
-        $view->addTemplateDir($this->getPath() . '/Resources/views/');
+        Shopware()->Events()->addSubscriber(new Subscriber\Frontend($config, $viewDir));
+        Shopware()->Events()->addSubscriber(new Subscriber\Less($viewDir));
     }
 }
