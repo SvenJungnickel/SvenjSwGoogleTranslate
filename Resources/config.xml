@@ -2,12 +2,546 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
         <element required="false" type="text">
+            <name>includedLanguages</name>
+            <label lang="de">Unterstützte Sprachen auf folgende Liste beschränken (Weitere Details https://cloud.google.com/translate/docs/languages):</label>
+            <label lang="en">Limit supported languages to the following list (More details https://cloud.google.com/translate/docs/languages):</label>
+            <value>en,de,es,it,fr</value>
+            <description lang="de">Hier kannst du die Auswahl der Übersetzungs-Sprachen auf deiner Seite limitieren. Füge dazu einfach eine Kommma getrennte Liste von Sprachen im ISO-639-1 Format ein. Willst du alle Sprachen zur Verfügung stellen dann leere das Feld einfach.</description>
+            <description lang="en">Here you can limit the selection of translated languages on you page. Just paste a comma separated list of languages in the ISO-639-1 code. if you want all languages supported then just empty the field.</description>
+        </element>
+
+        <element required="false" type="boolean">
+            <name>multilanguagePage</name>
+            <label lang="de">Deine Seite enthält Inhalte in mehreren Sprachen?</label>
+            <label lang="en">Your page contains content in multiple languages?</label>
+            <value>false</value>
+        </element>
+
+        <element required="false" type="text">
             <name>AnalyticsWebPropertyID</name>
             <label lang="de">Die Verwendung der Übersetzungsfunktion soll in Google Analytics verfolgt werden? Dann füge deine Analytics-Web-Property-ID hier ein</label>
             <label lang="en">You want to track the translation traffic using Google Analytics? Then paste your Analytics-Web-Property-ID here</label>
             <value></value>
             <description lang="de">Deine Analytics-Web-Property-ID findest du in deinem Google Analytics Konto unter "Verwaltung->Property-Einstellungen->Grundeinstellungen->Tracking-ID" (z.B. UA-01234567-1)</description>
             <description lang="en">You can find your Analytics-Web-Property-ID in your Google Analytics account under "Admin->Property Settings->Basic Settings->Tracking Id" (eg. UA-01234567-1)</description>
+        </element>
+
+        <element required="false" type="select">
+            <name>defaultLanguage</name>
+            <label lang="de">Standard Sprache auswählen</label>
+            <label lang="en">Select default language</label>
+            <store>
+                <option>
+                    <value>af</value>
+                    <label lang="de">Afrikaans</label>
+                    <label lang="en">Afrikaans</label>
+                </option>
+                <option>
+                    <value>sq</value>
+                    <label lang="de">Albanisch</label>
+                    <label lang="en">Albanian</label>
+                </option>
+                <option>
+                    <value>am</value>
+                    <label lang="de">Amharisch</label>
+                    <label lang="en">Amharic</label>
+                </option>
+                <option>
+                    <value>ar</value>
+                    <label lang="de">Arabisch</label>
+                    <label lang="en">Arabic</label>
+                </option>
+                <option>
+                    <value>hy</value>
+                    <label lang="de">Armenisch</label>
+                    <label lang="en">Armenian</label>
+                </option>
+                <option>
+                    <value>az</value>
+                    <label lang="de">Aserbaidschanisch</label>
+                    <label lang="en">Azerbaijani</label>
+                </option>
+                <option>
+                    <value>eu</value>
+                    <label lang="de">Baskisch</label>
+                    <label lang="en">Basque</label>
+                </option>
+                <option>
+                    <value>bn</value>
+                    <label lang="de">Bengalisch</label>
+                    <label lang="en">Bengali</label>
+                </option>
+                <option>
+                    <value>my</value>
+                    <label lang="de">Birmanisch</label>
+                    <label lang="en">Burmese</label>
+                </option>
+                <option>
+                    <value>bs</value>
+                    <label lang="de">Bosnisch</label>
+                    <label lang="en">Bosnian</label>
+                </option>
+                <option>
+                    <value>bg</value>
+                    <label lang="de">Bulgarisch</label>
+                    <label lang="en">Bulgarian</label>
+                </option>
+                <option>
+                    <value>ceb</value>
+                    <label lang="de">Cebuano</label>
+                    <label lang="en">Cebuano</label>
+                </option>
+                <option>
+                    <value>zh-CN</value>
+                    <label lang="de">Chinesisch</label>
+                    <label lang="en">Chinese</label>
+                </option>
+                <option>
+                    <value>zh-TW</value>
+                    <label lang="de">Chinesisch (Traditionell)</label>
+                    <label lang="en">Chinese (Traditional)</label>
+                </option>
+                <option>
+                    <value>da</value>
+                    <label lang="de">Dänisch</label>
+                    <label lang="en">Danish</label>
+                </option>
+                <option>
+                    <value>de</value>
+                    <label lang="de">Deutsch</label>
+                    <label lang="en">German</label>
+                </option>
+                <option>
+                    <value>en</value>
+                    <label lang="de">Englisch</label>
+                    <label lang="en">English</label>
+                </option>
+                <option>
+                    <value>eo</value>
+                    <label lang="de">Esperanto</label>
+                    <label lang="en">Esperanto</label>
+                </option>
+                <option>
+                    <value>et</value>
+                    <label lang="de">Estnisch</label>
+                    <label lang="en">Estonian</label>
+                </option>
+                <option>
+                    <value>tl</value>
+                    <label lang="de">Filipino</label>
+                    <label lang="en">Filipino</label>
+                </option>
+                <option>
+                    <value>fi</value>
+                    <label lang="de">Finnisch</label>
+                    <label lang="en">Finnish</label>
+                </option>
+                <option>
+                    <value>fr</value>
+                    <label lang="de">Französisch</label>
+                    <label lang="en">French</label>
+                </option>
+                <option>
+                    <value>gl</value>
+                    <label lang="de">Galizisch</label>
+                    <label lang="en">Galician</label>
+                </option>
+                <option>
+                    <value>ka</value>
+                    <label lang="de">Georgisch</label>
+                    <label lang="en">Georgian</label>
+                </option>
+                <option>
+                    <value>el</value>
+                    <label lang="de">Griechisch</label>
+                    <label lang="en">Greek</label>
+                </option>
+                <option>
+                    <value>gu</value>
+                    <label lang="de">Gujarati</label>
+                    <label lang="en">Gujarati</label>
+                </option>
+                <option>
+                    <value>ht</value>
+                    <label lang="de">Haiti-Kreolisch</label>
+                    <label lang="en">Haitian Creole</label>
+                </option>
+                <option>
+                    <value>ha</value>
+                    <label lang="de">Haussa</label>
+                    <label lang="en">Hausa</label>
+                </option>
+                <option>
+                    <value>haw</value>
+                    <label lang="de">Hawaiisch</label>
+                    <label lang="en">Hawaiian</label>
+                </option>
+                <option>
+                    <value>iw</value>
+                    <label lang="de">Hebräisch</label>
+                    <label lang="en">Hebrew</label>
+                </option>
+                <option>
+                    <value>hi</value>
+                    <label lang="de">Hindi</label>
+                    <label lang="en">Hindi</label>
+                </option>
+                <option>
+                    <value>ig</value>
+                    <label lang="de">Igbo</label>
+                    <label lang="en">Igbo</label>
+                </option>
+                <option>
+                    <value>id</value>
+                    <label lang="de">Indonesisch</label>
+                    <label lang="en">Indonesian</label>
+                </option>
+                <option>
+                    <value>is</value>
+                    <label lang="de">Isländisch</label>
+                    <label lang="en">Icelandic</label>
+                </option>
+                <option>
+                    <value>it</value>
+                    <label lang="de">Italienisch</label>
+                    <label lang="en">Italian</label>
+                </option>
+                <option>
+                    <value>ja</value>
+                    <label lang="de">Japanisch</label>
+                    <label lang="en">Japanese</label>
+                </option>
+                <option>
+                    <value>jv</value>
+                    <label lang="de">Javanisch</label>
+                    <label lang="en">Javanese</label>
+                </option>
+                <option>
+                    <value>yi</value>
+                    <label lang="de">Jiddisch</label>
+                    <label lang="en">Yiddish</label>
+                </option>
+                <option>
+                    <value>kn</value>
+                    <label lang="de">Kannada</label>
+                    <label lang="en">Kannada</label>
+                </option>
+                <option>
+                    <value>kk</value>
+                    <label lang="de">Kasachisch</label>
+                    <label lang="en">Kazakh</label>
+                </option>
+                <option>
+                    <value>ca</value>
+                    <label lang="de">Katalanisch</label>
+                    <label lang="en">Catalan</label>
+                </option>
+                <option>
+                    <value>km</value>
+                    <label lang="de">Khmer</label>
+                    <label lang="en">Khmer</label>
+                </option>
+                <option>
+                    <value>ky</value>
+                    <label lang="de">Kirgisisch</label>
+                    <label lang="en">Kyrgyz</label>
+                </option>
+                <option>
+                    <value>ko</value>
+                    <label lang="de">Koreanisch</label>
+                    <label lang="en">Korean</label>
+                </option>
+                <option>
+                    <value>co</value>
+                    <label lang="de">Korsisch</label>
+                    <label lang="en">Corsican</label>
+                </option>
+                <option>
+                    <value>hr</value>
+                    <label lang="de">Kroatisch</label>
+                    <label lang="en">Croatian</label>
+                </option>
+                <option>
+                    <value>ku</value>
+                    <label lang="de">Kurdisch</label>
+                    <label lang="en">Kurdish</label>
+                </option>
+                <option>
+                    <value>lo</value>
+                    <label lang="de">Laotisch</label>
+                    <label lang="en">Lao</label>
+                </option>
+                <option>
+                    <value>la</value>
+                    <label lang="de">Latein</label>
+                    <label lang="en">Latin</label>
+                </option>
+                <option>
+                    <value>lv</value>
+                    <label lang="de">Lettisch</label>
+                    <label lang="en">Latvian</label>
+                </option>
+                <option>
+                    <value>lt</value>
+                    <label lang="de">Litauisch</label>
+                    <label lang="en">Lithuanian</label>
+                </option>
+                <option>
+                    <value>lb</value>
+                    <label lang="de">Luxemburgisch</label>
+                    <label lang="en">Luxembourgish</label>
+                </option>
+                <option>
+                    <value>mg</value>
+                    <label lang="de">Madagassisch</label>
+                    <label lang="en">Malagasy</label>
+                </option>
+                <option>
+                    <value>ms</value>
+                    <label lang="de">Malaiisch</label>
+                    <label lang="en">Malay</label>
+                </option>
+                <option>
+                    <value>ml</value>
+                    <label lang="de">Malayalam</label>
+                    <label lang="en">Malayalam</label>
+                </option>
+                <option>
+                    <value>mt</value>
+                    <label lang="de">Maltesisch</label>
+                    <label lang="en">Maltese</label>
+                </option>
+                <option>
+                    <value>mi</value>
+                    <label lang="de">Maori</label>
+                    <label lang="en">Maori</label>
+                </option>
+                <option>
+                    <value>mr</value>
+                    <label lang="de">Marathi</label>
+                    <label lang="en">Marathi</label>
+                </option>
+                <option>
+                    <value>mk</value>
+                    <label lang="de">Mazedonisch</label>
+                    <label lang="en">Macedonian</label>
+                </option>
+                <option>
+                    <value>hmn</value>
+                    <label lang="de">Miao-Sprache</label>
+                    <label lang="en">Hmong</label>
+                </option>
+                <option>
+                    <value>mn</value>
+                    <label lang="de">Mongolisch</label>
+                    <label lang="en">Mongolian</label>
+                </option>
+                <option>
+                    <value>ne</value>
+                    <label lang="de">Nepalesisch</label>
+                    <label lang="en">Nepali</label>
+                </option>
+                <option>
+                    <value>nl</value>
+                    <label lang="de">Niederländisch</label>
+                    <label lang="en">Dutch</label>
+                </option>
+                <option>
+                    <value>no</value>
+                    <label lang="de">Norwegisch</label>
+                    <label lang="en">Norwegian</label>
+                </option>
+                <option>
+                    <value>ny</value>
+                    <label lang="de">Nyanja-Sprache</label>
+                    <label lang="en">Nyanja</label>
+                </option>
+                <option>
+                    <value>ps</value>
+                    <label lang="de">Paschtu</label>
+                    <label lang="en">Pashto</label>
+                </option>
+                <option>
+                    <value>fa</value>
+                    <label lang="de">Persisch</label>
+                    <label lang="en">Persian</label>
+                </option>
+                <option>
+                    <value>pl</value>
+                    <label lang="de">Polnisch</label>
+                    <label lang="en">Polish</label>
+                </option>
+                <option>
+                    <value>pt</value>
+                    <label lang="de">Portugiesisch</label>
+                    <label lang="en">Portuguese</label>
+                </option>
+                <option>
+                    <value>pa</value>
+                    <label lang="de">Punjabi</label>
+                    <label lang="en">Punjabi</label>
+                </option>
+                <option>
+                    <value>ro</value>
+                    <label lang="de">Rumänisch</label>
+                    <label lang="en">Romanian</label>
+                </option>
+                <option>
+                    <value>ru</value>
+                    <label lang="de">Russisch</label>
+                    <label lang="en">Russian</label>
+                </option>
+                <option>
+                    <value>sm</value>
+                    <label lang="de">Samoanisch</label>
+                    <label lang="en">Samoan</label>
+                </option>
+                <option>
+                    <value>gd</value>
+                    <label lang="de">Schottisches Gälisch</label>
+                    <label lang="en">Scottish Gaelic</label>
+                </option>
+                <option>
+                    <value>sv</value>
+                    <label lang="de">Schwedisch</label>
+                    <label lang="en">Swedish</label>
+                </option>
+                <option>
+                    <value>sr</value>
+                    <label lang="de">Serbisch</label>
+                    <label lang="en">Serbian</label>
+                </option>
+                <option>
+                    <value>sn</value>
+                    <label lang="de">Shona</label>
+                    <label lang="en">Shona</label>
+                </option>
+                <option>
+                    <value>sd</value>
+                    <label lang="de">Sindhi</label>
+                    <label lang="en">Sindhi</label>
+                </option>
+                <option>
+                    <value>si</value>
+                    <label lang="de">Singhalesisch</label>
+                    <label lang="en">Sinhala</label>
+                </option>
+                <option>
+                    <value>sk</value>
+                    <label lang="de">Slowakisch</label>
+                    <label lang="en">Slovak</label>
+                </option>
+                <option>
+                    <value>sl</value>
+                    <label lang="de">Slowenisch</label>
+                    <label lang="en">Slovenian</label>
+                </option>
+                <option>
+                    <value>so</value>
+                    <label lang="de">Somali</label>
+                    <label lang="en">Somali</label>
+                </option>
+                <option>
+                    <value>es</value>
+                    <label lang="de">Spanisch</label>
+                    <label lang="en">Spanish</label>
+                </option>
+                <option>
+                    <value>sw</value>
+                    <label lang="de">Suaheli</label>
+                    <label lang="en">Swahili</label>
+                </option>
+                <option>
+                    <value>su</value>
+                    <label lang="de">Sundanesisch</label>
+                    <label lang="en">Sundanese</label>
+                </option>
+                <option>
+                    <value>tg</value>
+                    <label lang="de">Tadschikisch</label>
+                    <label lang="en">Tajik</label>
+                </option>
+                <option>
+                    <value>ta</value>
+                    <label lang="de">Tamil</label>
+                    <label lang="en">Tamil</label>
+                </option>
+                <option>
+                    <value>te</value>
+                    <label lang="de">Telugu</label>
+                    <label lang="en">Telugu</label>
+                </option>
+                <option>
+                    <value>th</value>
+                    <label lang="de">Thailändisch</label>
+                    <label lang="en">Thai</label>
+                </option>
+                <option>
+                    <value>cs</value>
+                    <label lang="de">Tschechisch</label>
+                    <label lang="en">Czech</label>
+                </option>
+                <option>
+                    <value>tr</value>
+                    <label lang="de">Türkisch</label>
+                    <label lang="en">Turkish</label>
+                </option>
+                <option>
+                    <value>uk</value>
+                    <label lang="de">Ukrainisch</label>
+                    <label lang="en">Ukrainian</label>
+                </option>
+                <option>
+                    <value>hu</value>
+                    <label lang="de">Ungarisch</label>
+                    <label lang="en">Hungarian</label>
+                </option>
+                <option>
+                    <value>ur</value>
+                    <label lang="de">Urdu</label>
+                    <label lang="en">Urdu</label>
+                </option>
+                <option>
+                    <value>uz</value>
+                    <label lang="de">Usbekisch</label>
+                    <label lang="en">Uzbek</label>
+                </option>
+                <option>
+                    <value>vi</value>
+                    <label lang="de">Vietnamesisch</label>
+                    <label lang="en">Vietnamese</label>
+                </option>
+                <option>
+                    <value>cy</value>
+                    <label lang="de">Walisisch</label>
+                    <label lang="en">Welsh</label>
+                </option>
+                <option>
+                    <value>be</value>
+                    <label lang="de">Weißrussisch</label>
+                    <label lang="en">Belarusian</label>
+                </option>
+                <option>
+                    <value>fy</value>
+                    <label lang="de">Westfriesisch</label>
+                    <label lang="en">Western Frisian</label>
+                </option>
+                <option>
+                    <value>xh</value>
+                    <label lang="de">Xhosa</label>
+                    <label lang="en">Xhosa</label>
+                </option>
+                <option>
+                    <value>yo</value>
+                    <label lang="de">Yoruba</label>
+                    <label lang="en">Yoruba</label>
+                </option>
+                <option>
+                    <value>zu</value>
+                    <label lang="de">Zulu</label>
+                    <label lang="en">Zulu</label>
+                </option>
+            </store>
         </element>
     </elements>
 </config>

@@ -42,6 +42,9 @@ class Frontend implements SubscriberInterface
     {
         $view = $args->getSubject()->View();
 
+        $view->assign('defaultLanguage', $this->config['defaultLanguage']);
+        $view->assign('includedLanguages', $this->config['includedLanguages']);
+        $view->assign('multilanguagePage', $this->config['multilanguagePage']);
         $view->assign('sAnalyticsWebPropertyID', $this->config['AnalyticsWebPropertyID']);
         $view->addTemplateDir($this->viewDir);
     }

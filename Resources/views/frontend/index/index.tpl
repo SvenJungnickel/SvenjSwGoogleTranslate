@@ -4,6 +4,15 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
+            {if isset($defaultLanguage) && $defaultLanguage != ""}
+                pageLanguage: '{$defaultLanguage}',
+            {/if}
+            {if isset($includedLanguages) && $includedLanguages != ""}
+                includedLanguages: '{$includedLanguages}',
+            {/if}
+            {if isset($multilanguagePage) && $multilanguagePage == true}
+                multilanguagePage: true,
+            {/if}
             {if isset($sAnalyticsWebPropertyID) && $sAnalyticsWebPropertyID != ""}
                 gaTrack: true,
                 gaId: '{$sAnalyticsWebPropertyID}'
